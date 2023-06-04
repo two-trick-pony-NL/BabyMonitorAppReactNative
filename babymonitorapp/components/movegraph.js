@@ -11,9 +11,7 @@ import {
 
 
 
-const Movement = () => {
-  const [loading, setLoading] = useState(true)
-  const [Movementgraph, setMovementgraph] = useState([]);
+const Movement = props => {
 
   function getTime(unixTimeStamp) {
     return new Date(unixTimeStamp).toLocaleTimeString("nl-NL", {
@@ -22,51 +20,24 @@ const Movement = () => {
     });
   }
 
-
-  useEffect(() => {
-    let interval = setInterval(() => {
-      fetch('https://iom7vetorqgo7rg77bo5o2mmee0vcpgy.lambda-url.eu-central-1.on.aws/list-measurements/test_baby')
-        .then((response) => response.json())
-        .then((responseJson) => {
-        console.log('Movement graph data arrived');
-        setMovementgraph(responseJson);
-        setLoading(false)
-        })
-        .catch((error) => {
-        console.error(error);
-        });
-    }, 2000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-    return loading ? ( 
-      <View style={{width:290, height:220, alignItems:'center', justifyContent:'center'}}>
-      <ActivityIndicator
-                style={{width: 50, height: 50, alignSelf:'center'}}
-                size="large"
-                color="#fff"
-            />    
-      </View>
-    ):(
+    return (
         <View>
   <BarChart
     data={{
-      labels: [getTime(Movementgraph.measurements[9]["lastUpdate"]),getTime(Movementgraph.measurements[8]["lastUpdate"]),getTime(Movementgraph.measurements[7]["lastUpdate"]), getTime(Movementgraph.measurements[6]["lastUpdate"]),getTime(Movementgraph.measurements[5]["lastUpdate"]),getTime(Movementgraph.measurements[4]["lastUpdate"]), getTime(Movementgraph.measurements[3]["lastUpdate"]), getTime(Movementgraph.measurements[2]["lastUpdate"]), getTime(Movementgraph.measurements[1]["lastUpdate"]), getTime(Movementgraph.measurements[0]["lastUpdate"])],
+      labels: [getTime(props.data.measurements[9]["lastUpdate"]),getTime(props.data.measurements[8]["lastUpdate"]),getTime(props.data.measurements[7]["lastUpdate"]), getTime(props.data.measurements[6]["lastUpdate"]),getTime(props.data.measurements[5]["lastUpdate"]),getTime(props.data.measurements[4]["lastUpdate"]), getTime(props.data.measurements[3]["lastUpdate"]), getTime(props.data.measurements[2]["lastUpdate"]), getTime(props.data.measurements[1]["lastUpdate"]), getTime(props.data.measurements[0]["lastUpdate"])],
       datasets: [
         {
           data: [
-            Movementgraph.measurements[9]["movementDetected"],
-            Movementgraph.measurements[8]["movementDetected"],
-            Movementgraph.measurements[7]["movementDetected"],
-            Movementgraph.measurements[6]["movementDetected"],
-            Movementgraph.measurements[5]["movementDetected"],
-            Movementgraph.measurements[4]["movementDetected"],
-            Movementgraph.measurements[3]["movementDetected"],
-            Movementgraph.measurements[2]["movementDetected"],
-            Movementgraph.measurements[1]["movementDetected"],
-            Movementgraph.measurements[0]["movementDetected"],
+            props.data.measurements[9]["movementDetected"],
+            props.data.measurements[8]["movementDetected"],
+            props.data.measurements[7]["movementDetected"],
+            props.data.measurements[6]["movementDetected"],
+            props.data.measurements[5]["movementDetected"],
+            props.data.measurements[4]["movementDetected"],
+            props.data.measurements[3]["movementDetected"],
+            props.data.measurements[2]["movementDetected"],
+            props.data.measurements[1]["movementDetected"],
+            props.data.measurements[0]["movementDetected"],
     
           ]
         }
