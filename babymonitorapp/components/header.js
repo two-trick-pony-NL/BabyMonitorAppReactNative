@@ -9,9 +9,7 @@ const Header = () => {
         fetch('https://iom7vetorqgo7rg77bo5o2mmee0vcpgy.lambda-url.eu-central-1.on.aws/list-user/test_baby')
             .then((response) => response.json())
             .then((responseJson) => {
-            console.log('User data arrived');
             setUser(responseJson);
-            console.log(user)
             })
             .catch((error) => {
             console.error(error);
@@ -43,7 +41,6 @@ const Header = () => {
     })
       .then(response => response.json())
       .then(data => {
-        // Handle the response data
         console.log(data);
       })
       .catch(error => {

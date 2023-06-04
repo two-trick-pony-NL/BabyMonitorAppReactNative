@@ -17,57 +17,56 @@ const Cries  = props => {
 
     return(
         <View>
-  <BarChart
-    data={{
-      labels: [getTime(props.data.measurements[9]["lastUpdate"]),getTime(props.data.measurements[8]["lastUpdate"]),getTime(props.data.measurements[7]["lastUpdate"]), getTime(props.data.measurements[6]["lastUpdate"]),getTime(props.data.measurements[5]["lastUpdate"]),getTime(props.data.measurements[4]["lastUpdate"]), getTime(props.data.measurements[3]["lastUpdate"]), getTime(props.data.measurements[2]["lastUpdate"]), getTime(props.data.measurements[1]["lastUpdate"]), getTime(props.data.measurements[0]["lastUpdate"])],
-      datasets: [
-        {
-          data: [
-            props.data.measurements[9]["cryDetected"],
-            props.data.measurements[8]["cryDetected"],
-            props.data.measurements[7]["cryDetected"],
-            props.data.measurements[6]["cryDetected"],
-            props.data.measurements[5]["cryDetected"],
-            props.data.measurements[4]["cryDetected"],
-            props.data.measurements[3]["cryDetected"],
-            props.data.measurements[2]["cryDetected"],
-            props.data.measurements[1]["cryDetected"],
-            props.data.measurements[0]["cryDetected"],
-    
+      <BarChart
+        data={{
+          labels: [getTime(props.data.measurements[9]["lastUpdate"]),getTime(props.data.measurements[8]["lastUpdate"]),getTime(props.data.measurements[7]["lastUpdate"]), getTime(props.data.measurements[6]["lastUpdate"]),getTime(props.data.measurements[5]["lastUpdate"]),getTime(props.data.measurements[4]["lastUpdate"]), getTime(props.data.measurements[3]["lastUpdate"]), getTime(props.data.measurements[2]["lastUpdate"]), getTime(props.data.measurements[1]["lastUpdate"]), getTime(props.data.measurements[0]["lastUpdate"])],
+          datasets: [
+            {
+              data: [
+                props.data.measurements[9]["cryDetected"],
+                props.data.measurements[8]["cryDetected"],
+                props.data.measurements[7]["cryDetected"],
+                props.data.measurements[6]["cryDetected"],
+                props.data.measurements[5]["cryDetected"],
+                props.data.measurements[4]["cryDetected"],
+                props.data.measurements[3]["cryDetected"],
+                props.data.measurements[2]["cryDetected"],
+                props.data.measurements[1]["cryDetected"],
+                props.data.measurements[0]["cryDetected"],
+        
+              ]
+            }
           ]
-        }
-      ]
-    }}
-    width={750} // from react-native
-    height={220}
-    withHorizontalLabels={false}
-    yAxisLabel=""
-    yAxisSuffix=""
-    yAxisInterval={1} // optional, defaults to 1
-    chartConfig={{
-      backgroundColor: "#FF6347",
-      backgroundGradientFrom: "#FF6347",
-      backgroundGradientTo: "#FF6347",
-      decimalPlaces: 0, // optional, defaults to 2dp
-      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      style: {
-        borderRadius: 16
-      },
-      propsForDots: {
-        r: "6",
-        strokeWidth: "1",
-        stroke: "#ffa726"
-      }
-    }}
-    bezier
-    style={{
-      borderRadius: 16,
-      alignSelf:'center',
-    }}
-  />
+        }}
+        width={750} // from react-native
+        height={220}
+        withHorizontalLabels={false}
+        yAxisLabel=""
+        yAxisSuffix=""
+        yAxisInterval={1} // optional, defaults to 1
+        chartConfig={{
+          backgroundColor: "#FF6347",
+          backgroundGradientFrom: "#FF6347",
+          backgroundGradientTo: "#FF6347",
+          decimalPlaces: 0, // optional, defaults to 2dp
+          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          style: {
+            borderRadius: 16
+          },
+          propsForDots: {
+            r: "6",
+            strokeWidth: "1",
+            stroke: "#ffa726"
+          }
+        }}
+        bezier
+        style={{
+          borderRadius: 16,
+          alignSelf:'center',
+        }}
+      />
 </View>
-
     );
 }
 

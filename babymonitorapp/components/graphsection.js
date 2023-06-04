@@ -22,7 +22,6 @@ const Graphs = () => {
       fetch('https://iom7vetorqgo7rg77bo5o2mmee0vcpgy.lambda-url.eu-central-1.on.aws/list-measurements/test_baby')
         .then((response) => response.json())
         .then((responseJson) => {
-        console.log('Graph data arrived');
         setData(responseJson);
         setLoading(false)
         })
