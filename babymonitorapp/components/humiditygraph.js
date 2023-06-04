@@ -2,36 +2,42 @@ import React from 'react';
 import { Text, View, Dimensions } from 'react-native';
 import {
     LineChart,
-    BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
   } from "react-native-chart-kit";
 
 
 
-const HumidityGraph = () => {
+const HumidityGraph = props => {
+  function getTime(unixTimeStamp) {
+    return new Date(unixTimeStamp).toLocaleTimeString("nl-NL", {
+      hour: '2-digit',
+      minute:'2-digit'
+    });
+  }
 
     return (
         <View>
   <LineChart
     data={{
-      labels: ["12:00", "12:05", "12:10", "12:15", "12:20", "12:25"],
+      labels: [getTime(props.data.measurements[9]["lastUpdate"]),getTime(props.data.measurements[8]["lastUpdate"]),getTime(props.data.measurements[7]["lastUpdate"]), getTime(props.data.measurements[6]["lastUpdate"]),getTime(props.data.measurements[5]["lastUpdate"]),getTime(props.data.measurements[4]["lastUpdate"]), getTime(props.data.measurements[3]["lastUpdate"]), getTime(props.data.measurements[2]["lastUpdate"]), getTime(props.data.measurements[1]["lastUpdate"]), getTime(props.data.measurements[0]["lastUpdate"])],
       datasets: [
         {
           data: [
-            Math.random() * 50,
-            Math.random() * 50,
-            Math.random() * 50,
-            Math.random() * 50,
-            Math.random() * 50,
-            Math.random() * 50
+            props.data.measurements[9]["humidity"],
+            props.data.measurements[8]["humidity"],
+            props.data.measurements[7]["humidity"],
+            props.data.measurements[6]["humidity"],
+            props.data.measurements[5]["humidity"],
+            props.data.measurements[4]["humidity"],
+            props.data.measurements[3]["humidity"],
+            props.data.measurements[2]["humidity"],
+            props.data.measurements[1]["humidity"],
+            props.data.measurements[0]["humidity"],
+    
           ]
         }
       ]
     }}
-    width={290} // from react-native
+    width={750} // from react-native
     height={220}
     yAxisLabel=""
     yAxisSuffix="%"

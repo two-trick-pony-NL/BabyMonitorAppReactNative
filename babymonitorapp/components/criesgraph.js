@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Dimensions, ActivityIndicator} from 'react-native';
 import {
-    LineChart,
     BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
   } from "react-native-chart-kit";
 
 
@@ -28,16 +23,16 @@ const Cries  = props => {
       datasets: [
         {
           data: [
-            props.data.measurements[9]["movementDetected"],
-            props.data.measurements[8]["movementDetected"],
-            props.data.measurements[7]["movementDetected"],
-            props.data.measurements[6]["movementDetected"],
-            props.data.measurements[5]["movementDetected"],
-            props.data.measurements[4]["movementDetected"],
-            props.data.measurements[3]["movementDetected"],
-            props.data.measurements[2]["movementDetected"],
-            props.data.measurements[1]["movementDetected"],
-            props.data.measurements[0]["movementDetected"],
+            props.data.measurements[9]["cryDetected"],
+            props.data.measurements[8]["cryDetected"],
+            props.data.measurements[7]["cryDetected"],
+            props.data.measurements[6]["cryDetected"],
+            props.data.measurements[5]["cryDetected"],
+            props.data.measurements[4]["cryDetected"],
+            props.data.measurements[3]["cryDetected"],
+            props.data.measurements[2]["cryDetected"],
+            props.data.measurements[1]["cryDetected"],
+            props.data.measurements[0]["cryDetected"],
     
           ]
         }

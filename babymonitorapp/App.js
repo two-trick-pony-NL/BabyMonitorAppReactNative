@@ -12,7 +12,7 @@ export default function App() {
       <Header/>
       <LastMeasurement />
       <View style={styles.container}>
-      <Text style={{fontSize:36, fontWeight:'bold', alignSelf:'flex-start', padding:20}}>Last 30 Minutes</Text>
+      <Text style={{fontSize:36, fontWeight:'bold', alignSelf:'flex-start', padding:20}}>Last 10 Minutes</Text>
       <Graphs />
       </View>
       </ScrollView>

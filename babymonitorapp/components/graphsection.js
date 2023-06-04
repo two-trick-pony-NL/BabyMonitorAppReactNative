@@ -58,11 +58,11 @@ const Graphs = () => {
       </View>
       <View style={{backgroundColor:'dodgerblue', borderRadius:20, alignItems:'center', marginHorizontal:20}}>
       <Text style={{marginHorizontal:20, fontWeight:'bold', color:'white'}}>Temperature</Text>
-        <TempGraph></TempGraph>
+        <TempGraph data={data}/>
       </View>
       <View style={{backgroundColor:'gold', borderRadius:20, alignItems:'center', marginHorizontal:20}}>
       <Text style={{marginHorizontal:20, fontWeight:'bold', color:'white'}}>Humidity</Text>
-        <HumidityGraph></HumidityGraph>
+        <HumidityGraph data={data}/>
       </View>
 
 
