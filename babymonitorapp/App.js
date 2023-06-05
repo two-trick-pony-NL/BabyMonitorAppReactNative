@@ -60,7 +60,7 @@ export default function App() {
       <Header context={data} loading={loading}/>
       <LastMeasurement data={data} loading={loading}/>
       <View style={styles.container}>
-      <Text style={{fontSize:36, fontWeight:'bold', alignSelf:'flex-start', padding:20}}>Last 10 Minutes</Text>
+      <Text style={{fontSize:36, fontWeight:'bold', alignSelf:'flex-start', padding:20}}>History</Text>
       <Graphs data={data} loading={loading}/>
       </View>
       </ScrollView>
