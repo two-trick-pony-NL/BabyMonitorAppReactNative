@@ -8,7 +8,13 @@ const HumidityGraph = props => {
   function getTime(unixTimeStamp) {
     const currentTime = moment().unix();
     const differenceInSeconds = currentTime - unixTimeStamp;
-    return `${differenceInSeconds} s ago`;
+  
+    if (differenceInSeconds < 60) {
+      return `${differenceInSeconds} s ago`;
+    } else {
+      const differenceInMinutes = Math.floor(differenceInSeconds / 60);
+      return `${differenceInMinutes} min ago`;
+    }
   }
 
   return props.loading ? ( 
@@ -23,10 +29,10 @@ const HumidityGraph = props => {
     <View>
       <LineChart
         data={{
-          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)).reverse(),
+          labels: props.data.measurements.slice(0, 20).map(measurement => getTime(measurement.lastUpdate)).reverse(),
           datasets: [
             {
-              data: props.data.measurements.slice(0, 10).map(measurement => measurement.humidity).reverse(),
+              data: props.data.measurements.slice(0, 20).map(measurement => measurement.humidity).reverse(),
             }
           ]
         }}
@@ -35,6 +41,7 @@ const HumidityGraph = props => {
         yAxisLabel=""
         yAxisSuffix="%"
         yAxisInterval={1} // optional, defaults to 1
+        hidePointsAtIndex={ Array.from({length: 20}, (v, k) => (k%2 === 0) ? k : null) }
         chartConfig={{
           backgroundColor: "#FFD700",
           backgroundGradientFrom: "#FFD700",

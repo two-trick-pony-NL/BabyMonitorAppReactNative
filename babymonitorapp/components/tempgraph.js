@@ -7,7 +7,13 @@ const TempGraph = props => {
   function getTime(unixTimeStamp) {
     const currentTime = moment().unix();
     const differenceInSeconds = currentTime - unixTimeStamp;
-    return `${differenceInSeconds} s ago`;
+  
+    if (differenceInSeconds < 60) {
+      return `${differenceInSeconds} s ago`;
+    } else {
+      const differenceInMinutes = Math.floor(differenceInSeconds / 60);
+      return `${differenceInMinutes} min ago`;
+    }
   }
 
   return props.loading ? ( 
@@ -22,10 +28,10 @@ const TempGraph = props => {
     <View>
       <LineChart
         data={{
-          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)).reverse(),
+          labels: props.data.measurements.slice(0, 20).map(measurement => getTime(measurement.lastUpdate)).reverse(),
           datasets: [
             {
-              data: props.data.measurements.slice(0, 10).map(measurement => measurement.temperature).reverse(),
+              data: props.data.measurements.slice(0, 20).map(measurement => measurement.temperature).reverse(),
             }
           ]
         }}
@@ -34,6 +40,7 @@ const TempGraph = props => {
         yAxisLabel=""
         yAxisSuffix="°C"
         yAxisInterval={1} // optional, defaults to 1
+        hidePointsAtIndex={ Array.from({length: 20}, (v, k) => (k%2 === 0) ? k : null) }
         chartConfig={{
           backgroundColor: "#1E90FF",
           backgroundGradientFrom: "#1E90FF",

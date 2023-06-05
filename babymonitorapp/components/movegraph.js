@@ -7,8 +7,15 @@ const Cries = props => {
   function getTime(unixTimeStamp) {
     const currentTime = moment().unix();
     const differenceInSeconds = currentTime - unixTimeStamp;
-    return `${differenceInSeconds} s ago`;
+  
+    if (differenceInSeconds < 60) {
+      return `${differenceInSeconds} s ago`;
+    } else {
+      const differenceInMinutes = Math.floor(differenceInSeconds / 60);
+      return `${differenceInMinutes} min ago`;
+    }
   }
+  
 
   return props.loading ? ( 
     <View style={{width:'90%', height:220, borderRadius:20, backgroundColor:'#5FAD56', alignItems:'center', justifyContent:'center'}}>
@@ -22,18 +29,19 @@ const Cries = props => {
     <View>
       <BarChart
         data={{
-          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)).reverse(),
+          labels: props.data.measurements.slice(0, 20).map(measurement => getTime(measurement.lastUpdate)).reverse(),
           datasets: [
             {
-              data: props.data.measurements.slice(0, 10).map(measurement => measurement.cryDetected).reverse(),
+              data: props.data.measurements.slice(0, 20).map(measurement => measurement.cryDetected).reverse(),
             }
           ]
         }}
-        width={750} // from react-native
+        width={1200} // from react-native
         height={220}
         withHorizontalLabels={false}
         yAxisLabel=""
         yAxisSuffix=""
+        hidePointsAtIndex={ Array.from({length: 20}, (v, k) => (k%2 === 0) ? k : null) }
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: "#FF6347",
