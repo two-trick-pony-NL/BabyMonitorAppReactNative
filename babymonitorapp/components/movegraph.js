@@ -3,8 +3,7 @@ import { Text, View, ActivityIndicator, Dimensions } from 'react-native';
 import { BarChart } from "react-native-chart-kit";
 import moment from 'moment';
 
-
-const Movement = props => {
+const Cries = props => {
   function getTime(unixTimeStamp) {
     const currentTime = moment().unix();
     const differenceInSeconds = currentTime - unixTimeStamp;
@@ -12,7 +11,7 @@ const Movement = props => {
   }
 
   return props.loading ? ( 
-    <View style={{width:'90%', height:220, borderRadius:20, backgroundColor:'tomato', alignItems:'center', justifyContent:'center'}}>
+    <View style={{width:'90%', height:220, borderRadius:20, backgroundColor:'#5FAD56', alignItems:'center', justifyContent:'center'}}>
       <ActivityIndicator
         style={{width: 50, height: 50, alignSelf:'center'}}
         size="large"
@@ -23,10 +22,10 @@ const Movement = props => {
     <View>
       <BarChart
         data={{
-          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)),
+          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)).reverse(),
           datasets: [
             {
-              data: props.data.measurements.slice(0, 10).map(measurement => measurement.movementDetected ? 1 : 0),
+              data: props.data.measurements.slice(0, 10).map(measurement => measurement.cryDetected).reverse(),
             }
           ]
         }}
@@ -62,4 +61,4 @@ const Movement = props => {
   );
 }
 
-export default Movement;
+export default Cries;

@@ -23,10 +23,10 @@ const HumidityGraph = props => {
     <View>
       <LineChart
         data={{
-          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)),
+          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)).reverse(),
           datasets: [
             {
-              data: props.data.measurements.slice(0, 10).map(measurement => measurement.humidity),
+              data: props.data.measurements.slice(0, 10).map(measurement => measurement.humidity).reverse(),
             }
           ]
         }}

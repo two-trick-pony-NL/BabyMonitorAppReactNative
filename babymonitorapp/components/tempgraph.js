@@ -3,7 +3,6 @@ import { Text, View, Dimensions, ActivityIndicator } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
 import moment from 'moment';
 
-
 const TempGraph = props => {
   function getTime(unixTimeStamp) {
     const currentTime = moment().unix();
@@ -23,10 +22,10 @@ const TempGraph = props => {
     <View>
       <LineChart
         data={{
-          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)),
+          labels: props.data.measurements.slice(0, 10).map(measurement => getTime(measurement.lastUpdate)).reverse(),
           datasets: [
             {
-              data: props.data.measurements.slice(0, 10).map(measurement => measurement.temperature),
+              data: props.data.measurements.slice(0, 10).map(measurement => measurement.temperature).reverse(),
             }
           ]
         }}
