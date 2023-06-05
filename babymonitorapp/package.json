@@ -13,6 +13,8 @@
     "@shopify/react-native-skia": "0.1.172",
     "expo": "^48.0.19",
     "expo-status-bar": "~1.4.4",
+    "expo-updates": "~0.16.4",
+    "moment": "^2.29.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
