@@ -44,9 +44,9 @@ const Cries = props => {
         hidePointsAtIndex={ Array.from({length: 20}, (v, k) => (k%2 === 0) ? k : null) }
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: "#FF6347",
-          backgroundGradientFrom: "#FF6347",
-          backgroundGradientTo: "#FF6347",
+          backgroundColor: "#5FAD56",
+          backgroundGradientFrom: "#5FAD56",
+          backgroundGradientTo: "#5FAD56",
           decimalPlaces: 0, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,

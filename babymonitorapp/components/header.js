@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, Image, View, Switch, ActivityIndicator } from 'react-native';
 import moment from 'moment';
+import CountdownTimer from './refreshtimer';
 
 
 const Header = (props) => {
@@ -75,7 +76,8 @@ const Header = (props) => {
     <View style={{flexDirection:'row', justifyContent: 'space-between', padding:20}}>
         <View>
             <Text style={{fontSize:36, fontWeight:'bold'}}>Doete</Text>
-            <Text>Updated {!props.loading && getRelativeTime(props.context.measurements[0]["lastUpdate"])}</Text>
+            <CountdownTimer></CountdownTimer>
+            <Text>Last change {!props.loading && getRelativeTime(props.context.measurements[0]["lastUpdate"])}</Text>
         </View>
         <View style={{flexDirection:'row', alignItems:'center'}}>
         <View style={{alignItems:'center', margin:10}}>

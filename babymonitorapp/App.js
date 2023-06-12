@@ -3,8 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Switch,
-  ActivityIndicator,
   SafeAreaView,
   RefreshControl,
   ScrollView,

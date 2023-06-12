@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "babymonitorapp",
-    "slug": "babymonitorapp",
+    "name": "doetemonitorapp",
+    "slug": "doetemonitorapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.petervandoorn.babymonitorapp"
+      "bundleIdentifier": "com.petervandoorn.doetemonitorapp"
     },
     "android": {
       "adaptiveIcon": {

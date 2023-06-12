@@ -44,9 +44,9 @@ const Cries = props => {
         yAxisSuffix=""
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: "#5FAD56",
-          backgroundGradientFrom: "#5FAD56",
-          backgroundGradientTo: "#5FAD56",
+          backgroundColor: "#FF6347",
+          backgroundGradientFrom: "#FF6347",
+          backgroundGradientTo: "#FF6347",
           decimalPlaces: 0, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,

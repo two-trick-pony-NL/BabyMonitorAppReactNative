@@ -31,11 +31,11 @@ const Graphs = (props) => {
     >
       <View style={{backgroundColor:'tomato', borderRadius:20, alignItems:'flex-start', marginHorizontal:10, paddingRight:20}}>
         <Text style={{marginHorizontal:20, fontWeight:'bold', color:'white', marginLeft:50}}>Movement</Text>
-        <Movement data={props.data} loading={props.loading}/>
+        <Cries data={props.data} loading={props.loading}/>
       </View>
       <View style={{backgroundColor:'#5FAD56', borderRadius:20, alignItems:'flex-start', marginHorizontal:10, paddingRight:20}}>
         <Text style={{marginHorizontal:20, fontWeight:'bold', color:'white', marginLeft:50}}>Cries</Text>
-        <Cries data={props.data} loading={props.loading}/>
+        <Movement data={props.data} loading={props.loading}/>
       </View>
       <View style={{backgroundColor:'dodgerblue', borderRadius:20, alignItems:'center', marginHorizontal:20}}>
         <Text style={{marginHorizontal:20, fontWeight:'bold', color:'white'}}>Temperature</Text>
